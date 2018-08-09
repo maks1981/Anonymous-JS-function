@@ -1,0 +1,53 @@
+// Example for the anonymous function below;
+setInterval(function(){
+	console.log("I am an anonymous function!");
+	console.log("This is cool!");
+}, 2000);
+// 3
+// I am an anonymous function!
+// This is cool!
+// I am an anonymous function!
+// This is cool!
+// I am an anonymous function!
+// This is cool!
+// I am an anonymous function!
+// This is cool!
+clearInterval(3);//to stop it.
+
+// Another example for anonymous function
+var callback = function(a, b){
+    console.log(a + b);  // 'foobar'
+};
+
+window.setTimeout(function(){
+    callback('foo', 'bar');
+}, 1000);
+//answer is// foobar
+
+// Oooorrrr other one;
+
+window.setTimeout(callback, 1000, 'foo', 'bar');
+// answer also is// foobar
+
+// We can create a function that takes in time in minutes,
+// and then pass that to the setInterval function:
+
+function minutesToMilliseconds(minutes) {
+  return minutes * 60 * 1000;
+}
+ 
+setInterval(function () {
+  console.log('test');
+}, minutesToMilliseconds(5));
+
+// Other example;
+
+function sing() {
+  console.log("twinkle, twinkle....");
+  console.log("how I wonder....");
+}
+ 
+var intervalId = setInterval(sing, 1000);
+ 
+setTimeout(function() { clearInterval(intervalId); }, 5000);
+
